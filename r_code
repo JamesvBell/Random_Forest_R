@@ -1,0 +1,19 @@
+#random forest with mtcars dataset
+
+install.packages("randomForest")
+
+library("randomForest")
+
+mtcars.rf <- randomForest(mpg ~ ., data = mtcars, ntree = 1000, 
+                          keep.forest = FALSE, importance = FALSE)
+
+#that was crazy easy right. 1000 trees. 
+
+#let's plot the errors
+plot(mtcars.rf, log = "y", title = "")
+
+
+#it's hard to show this visually, but you'll see the errors reduce the 
+#more trees that are introduced. 
+
+#at a certain point there is diminishing returns past about 400 to 500 trees. 
